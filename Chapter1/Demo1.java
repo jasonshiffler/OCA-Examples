@@ -2,37 +2,32 @@
  * This file illustrates the following concepts from Chapter 1 of the OCA Java SE 8 Study Guide.
  * Think like the compiler!
  *
- * -Instantiating objects
- * -Working with constructors
- * -Variable Declaration Rules
- * -Instance Initializer Blocks
- * -Numeric Literals
  * -Comments
+ * -Instance Initializer Blocks
+ * -Instantiating objects
+ * -Working with constructors *
+ * -finalize()
+ *
  *
  * Uncomment purposefully inserted mistakes to see the compiler errors
  */
 
-
-//import java.util.Date; //imports must be between any package declarations and before first class definition
+//Example of a single line comment
+/*
+Example of a multiline comment, comments can go anywhere in the file
+ */
 
 package Chapter1;
 
-/*Initializer blocks must be within the
-class to work. Example of a multiline comment*/
-//Example of a single line comment
+/*Initializer blocks must be within the class to work!*/
 
 //{System.out.println("Fail");}
 //static { System.out.println("Fail");}
 
-import java.util.Date; //imports come between any package declarations and the first class
-//import java.util.date; //Java is case sensitive! The d in Date must be capitalized
-
-//import java.sql.Date; //Can't use Date from two packages!
 
 public class Demo1 {
 
     //import java.util.Date; //Too late!
-
 
 
     /***********We're showing initialization order here********************/
@@ -50,8 +45,7 @@ public class Demo1 {
     }
 
     //int num = 1; //instance variables and initialization blocks are evaluated in the order they appear in the
-    //.java file. uncomment me and comment out the previous num to see the compiler fail
-
+                   //.java file. uncomment me and comment out the previous num to see the compiler fail
 
 
     /**
@@ -60,7 +54,7 @@ public class Demo1 {
      */
     Demo1() {
         System.out.println("!");
-    }
+    } //close method
 
 /**
  * Finalize is an overriden method from class Object that runs IF the object is collected for garbage.
@@ -68,10 +62,8 @@ public class Demo1 {
  */
 
     protected void finalize(){
-
         System.out.println("Maybe I'll run, maybe I won't");
-
-    }
+    } //close method
 
 
     public static void main(String[] args) {
