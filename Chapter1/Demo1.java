@@ -17,7 +17,7 @@
 Example of a multiline comment, comments can go anywhere in the file
  */
 
-package Chapter1;
+package Chapter1;  // Package declarations must be first if it is present
 
 /*Initializer blocks must be within the class to work!*/
 
@@ -27,8 +27,6 @@ package Chapter1;
 
 public class Demo1 {
 
-    //import java.util.Date; //Too late!
-
 
     /***********We're showing initialization order here********************/
 
@@ -37,11 +35,10 @@ public class Demo1 {
         System.out.print("Hello");  //Static Initialization happens on class instantiation
     }
 
-    int num = 1; //Variables must begin with a letter, $ or _ and may contain numbers
+    int num = 1;                    //Variables must begin with a letter, $ or _ and may contain numbers
 
     {
-        System.out.print("World" + num); //Instance initializer and won't run until a Demo1 object is
-        //created. Runs before the constructor.
+        System.out.print("World" + num); //Instance initializer happens on object creation Runs before the constructor.
     }
 
     //int num = 1; //instance variables and initialization blocks are evaluated in the order they appear in the
@@ -55,6 +52,15 @@ public class Demo1 {
     Demo1() {
         System.out.println("!");
     } //close method
+
+
+    /**
+     * Even though the method name matches the class name this is not a constructor since
+     * there is a return type in the method declaration.
+     * */
+    public void Demo1(){
+        System.out.println("I'm not a constructor");
+    }
 
 /**
  * Finalize is an overriden method from class Object that runs IF the object is collected for garbage.
@@ -70,7 +76,12 @@ public class Demo1 {
         System.out.print(",");
         Demo1 demo = new Demo1(); // Create a reference var of type Demo1 called demo and point the reference
                                   // to a new Demo1 object.
+
+        demo.Demo1();
+
         demo = null;              //demo is de-referenced and is now eligible for garbage collection.
+
+        //demo.Demo1();           //This will generate an exception since demo no longer references an object
 
     }//close method
 
