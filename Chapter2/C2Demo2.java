@@ -1,10 +1,11 @@
 /**
- * This file illustrates the following concepts from Chapter 1 of the OCA Java SE 8 Study Guide.
+ * This file illustrates the following concepts from Chapter 2 of the OCA Java SE 8 Study Guide.
  * Think like the compiler!
  *
  * -logical operators
  * -short circuit operators
  * -if-then statements
+ * -ternary operator
  *
  *
  * Uncomment purposefully inserted mistakes to see the compiler errors
@@ -19,6 +20,7 @@ public class C2Demo2 {
         logicalDemo();
         shortCircuitDemo();
         ifThen();
+        ternaryDemo();
     }
 
     /**
@@ -107,16 +109,23 @@ public class C2Demo2 {
     /**
      * Shows how the ternary operator works it is in the form of
      *
-     * booleanExpression ? expression1 : expression2
+     * result = booleanExpression ? expression1 : expression2
      *
-     * and is a condensed version of if then else
+     * and is a condensed version of if then else that returns a value
      *
      * */
 
     private static void ternaryDemo(){
 
+        int x = 5;
+        int y = 0;
+        int z = 0;
 
-    }
+        //x<5 ? y++ : z++;     // need to have an assignment
+
+        int w = x<5 ? y++ : z++;
+
+    } //close method
 
 
 
