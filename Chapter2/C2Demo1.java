@@ -30,7 +30,6 @@ public class C2Demo1 {
  *
  * */
 
-
     public static void incdecDemo() {
         int i = 0;
 
@@ -107,10 +106,6 @@ public class C2Demo1 {
 
         if (a instanceof ArrayList)
             System.out.println("a is an ArrayList");
-
-
-
-
 
 
     }
