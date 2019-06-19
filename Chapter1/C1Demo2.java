@@ -23,7 +23,7 @@ import java.util.*;       //This statement includes all classes within the java.
 
 //int wrong1; //Variable declarations must be within a class
 
-public class Demo2 {      //Class declarations must come after the imports
+public class C1Demo2 {      //Class declarations must come after the imports
 
     //import java.util.Date; // must be between package and class!
 
@@ -77,7 +77,7 @@ public class Demo2 {      //Class declarations must come after the imports
 
 
     public static void main(String [] args){
-        Demo2 d2 = new Demo2();
+        C1Demo2 d2 = new C1Demo2();
 
         /**Instance variables are implicitly initialized */
 

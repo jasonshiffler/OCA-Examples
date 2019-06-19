@@ -25,7 +25,7 @@ package Chapter1;  // Package declarations must be first if it is present
 //static { System.out.println("Fail");}
 
 
-public class Demo1 {
+public class C1Demo1 {
 
 
     /***********We're showing initialization order here********************/
@@ -49,7 +49,7 @@ public class Demo1 {
      * I'm a no argument constructor
      * I run after the instance is initialized
      */
-    Demo1() {
+    C1Demo1() {
         System.out.println("!");
     } //close method
 
@@ -74,7 +74,7 @@ public class Demo1 {
 
     public static void main(String[] args) {
         System.out.print(",");
-        Demo1 demo = new Demo1(); // Create a reference var of type Demo1 called demo and point the reference
+        C1Demo1 demo = new C1Demo1(); // Create a reference var of type Demo1 called demo and point the reference
                                   // to a new Demo1 object.
 
         demo.Demo1();

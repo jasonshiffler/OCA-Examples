@@ -1,11 +1,12 @@
 /**
  * This file illustrates the following concepts from Chapter 3 of the OCA Java SE 8 Study Guide.
  * Think like the compiler!
- * <p>
- * <p>
- * -Strings
- * <p>
- * <p>
+ *
+ * -String Basics
+ * -String Methods
+ * -StringBuilder Basics
+ * -StringBuilder Methods
+ *
  * Uncomment purposefully inserted mistakes to see the compiler errors
  */
 
@@ -17,6 +18,8 @@ public class C3Demo1 {
     public static void main(String[] args) {
         stringDemo();
         stringMethods();
+        stringBuilderDemo();
+        stringBuilderMethods();
     }
 
 
@@ -105,13 +108,72 @@ public class C3Demo1 {
                                                            //chars are case sensitive
 
         //methods can be chained together as long, evaluation is done left to right
-        System.out.println(demo.toUpperCase().trim().replace('M','U')); 
-
-
+        System.out.println(demo.toUpperCase().trim().replace('M','U'));
 
     }//close method
 
 
+    /**
+     * The String Builder class is similar in functionality to the String class,
+     * however it is mutable so you don't have to create new String objects if you
+     * need to adjust the text
+     * */
+    private static void stringBuilderDemo() {
 
+        StringBuilder sb1 = new StringBuilder("start");
+        StringBuilder sb2 = sb1;
+        sb1.append("+middle+").append("end");             //chaining works because the object returns a reference to
+        System.out.println(sb1);                          //itself
+
+        sb2.append("I point to sb1 too!");               //Since sb2 points to the same object as sb1 this append call
+        System.out.println(sb1);                         //affects sb1 as well
+
+        if (sb1 == sb2)
+            System.out.println("sb1 and sb2 point to the same object");
+
+        StringBuilder sb3 = new StringBuilder();     //you can create an empty StringBuilder
+        StringBuilder sb4 = new StringBuilder(50); //you can create an empty StringBuilder with reserved space
+
+        StringBuilder sb6 = new StringBuilder("same");
+        StringBuilder sb7 = new StringBuilder("same");
+
+
+        if(sb6 != sb7)
+            System.out.println(("sb6 and sb7 don't point to the same object"));
+
+        if (sb6.equals(sb7))
+            System.out.println("StringBuilder doesn't implement equals!"); //StringBuilder checks reference for equality
+
+        String str6 = sb6.toString();
+        String str7 = sb7.toString();
+
+        if(str6.equals(str7))
+            System.out.println("You can convert a StringBuilder to a String to see if they are equivalent");
+
+    } //close method
+
+    /**
+     * StringBuilder uses many though not all of the same methods as String.
+     * There is no trim() method. Append is featured in the previous method
+     * */
+
+    private static void stringBuilderMethods(){
+
+        StringBuilder sb1 = new StringBuilder(" String Builder Methods ");
+        System.out.println(sb1.charAt(1));
+        System.out.println(sb1.indexOf("S"));
+        System.out.println(sb1.substring(3)); //this returns a string so it can't be chained
+
+        System.out.println(sb1.deleteCharAt(0)); //get rid of leading space
+        int length = sb1.length();
+        System.out.println(sb1.deleteCharAt(length-1)); //get rid of trailing space
+
+
+        System.out.println(sb1.reverse());        //reverse the order of the characters
+        System.out.println(sb1.delete(3,5)); //delete a section of the StringBuilder
+        System.out.println(sb1.insert(3,"jello")); //insert characters starting right before index 3
+
+
+    }//close method
 
 } //close class
