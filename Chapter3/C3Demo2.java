@@ -11,12 +11,18 @@
 
 package Chapter3;
 
+import java.util.*;          //Could either use this import to grab all classes in the package
+import java.util.ArrayList;  //or import each class individually
+import java.util.Arrays;    //Needed for Arrays.sort and Arrays.binarySearch
+
 public class C3Demo2 {
 
 
     public static void main(String[] args) {
 
         arrayDemo();
+        multidArrays();
+        arrayListDemo();
 
     }
 
@@ -69,7 +75,76 @@ public class C3Demo2 {
             System.out.print(i + " ");
         System.out.println();
 
+
+        //Searching an array returns the index of the value being searched for
+        //In order to search the Array it must be sorted first
+        //If the answer is negative the value is not in the array. the value returned is the # of the element in the
+        //array it would be, though not the index.
+        //If the value is found the index is returned
+
+        System.out.println(Arrays.binarySearch(string1, "45"));
+        System.out.println(Arrays.binarySearch(string1, "300"));
+
+
+    }  //close method
+
+
+    /**Shows the basics of multidimensional arrays*/
+    private static void multidArrays(){
+
+        int[][] vars1;              //2D Array
+        int vars2[][];              //2D Array
+        int[] vars3[];              //2D Array
+        int[] vars4[], vars5[][];   //2D Array and a 3D Array
+
+        String[][] rectangle = new String[3][2]; //Setting the size for the array
+
+        //Creating an asymetric Array
+        int[][] dSize = { {1,2,3}, {1}, {5,7} }; // The array doesn't have to be symmetric
+
+        System.out.println(dSize[0][1]);         //Answer is 2
+
+        //Another way to create an asymmetric Array
+        int[][] mda1 = new int[50][];
+        mda1[0] = new int[5];
+
+       //int[][] mda2 = new int[][]; //The first dimension of the array must be present
+
+        //iterating through a multi D array
+        for (int[] d1array: dSize)
+            for (int num: d1array)
+                System.out.println(num);
+
+    } //close method
+
+    /**
+     * Shows the basics of ArrayList class. ArrayLists are nice because they will resize themselves.
+     * */
+
+    private static void arrayListDemo() {
+
+        //Multiple ways to delcare an ArrayList
+
+        ArrayList alist1 = new ArrayList();
+        ArrayList<Integer> alist2 = new ArrayList<Integer>(); //Use of Generics to restrict the type of reference
+        ArrayList<Integer> alist3 = new ArrayList<>();     //Don't have to specify the type on the right side in Java7+
+        //ArrayList<int> alist4 = new ArrayList<>();        //An ArrayList can only hold a reference type
+
+        //ArrayList<String> alist5 = new List<>();   //A List is an interface not a class
+        List<String> list1 = new ArrayList<>();      //Since ArrayList implements List this is ok
+
+        ArrayList<String> alist6 = new ArrayList<>(10);  //Create an ArrayList while initializing the size
+                                                            //This isn't required as the ArrayList will dynamically size
+        alist6.add("One");                                   //itself
+        alist6.add("Two");
+        alist6.add("Three");
+        alist6.add("Two");
+        System.out.println(alist6);        //ArrayList has a toString Method
+        alist6.remove("Two");           //removes the first matching value in the ArrayList
+        System.out.println(alist6);
     }
+
+
 
 
 }
