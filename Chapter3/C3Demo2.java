@@ -3,6 +3,8 @@
  * Think like the compiler!
  *
  * -Arrays
+ * -ArrayLists
+ * -Wrapper classes
  *
  *
  * Uncomment purposefully inserted mistakes to see the compiler errors
@@ -139,9 +141,56 @@ public class C3Demo2 {
         alist6.add("Two");
         alist6.add("Three");
         alist6.add("Two");
-        System.out.println(alist6);        //ArrayList has a toString Method
-        alist6.remove("Two");           //removes the first matching value in the ArrayList
+        System.out.println(alist6);                       //ArrayList has a toString Method
+        alist6.remove("Two");                          //removes the first matching value in the ArrayList
         System.out.println(alist6);
+        alist6.set(0, "Zero");                            //Set the value at index zero to "0"
+        System.out.println(alist6.size());                //determine the number of slots in use
+        System.out.println(alist6.isEmpty());             //Is this an empty list?
+        System.out.println(alist6.contains("Zero"));      //does the list contain zero?
+        System.out.println(alist6.equals(alist1));        //Do these lists contain the same elements in the same order
+        alist6.clear();                                   //clear out the list
+
+
+
+        ArrayList<Integer> alist7 = new ArrayList<>();
+
+        alist7.add(3);
+        alist7.add(1);
+        alist7.add(45);
+        alist7.add(1);
+
+        Integer[] intArray = alist7.toArray(new Integer[0]); //How to convert an ArrayList to an Array
+
+        Collections.sort(alist7);        //How to sort an ArrayList
+
+
+
+    }
+
+
+    /**
+     * Shows the basics of the wrapper classes which allow you to use primitives as objects
+     * Java will autobox values between
+     * */
+
+    private static void wrapperDemo(){
+
+        Boolean boolW = new Boolean(true);
+        Byte byteW = new Byte((byte) 1);
+        Short shortW = new Short ((short) 1);
+        Integer intW = new Integer(42);
+        Long longW = new Long(42);
+        Float floatW = new Float(42.1f);
+        Double doubleW = new Double (1.3);
+
+        int primitive = Integer.parseInt("50");  //convert string to int. parseXXX converts to a primitive
+        Integer wrapper = Integer.valueOf("75");    // valueOf converts to a Wrapper class
+
+        //int bad1 = Integer.parseInt("a"); // This will throw and exception
+        Integer bad2 = Integer.valueOf("3434.54"); //
+
+
     }
 
 
