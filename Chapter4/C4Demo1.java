@@ -2,7 +2,7 @@
  * This file illustrates the following concepts from Chapter 4 of the OCA Java SE 8 Study Guide.
  * Think like the compiler!
  *
- *
+ * -method declarations
  *
  *
  * Uncomment purposefully inserted mistakes to see the compiler errors
