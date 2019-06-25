@@ -50,8 +50,8 @@ public class C4Demo6 {
 
     public static void passbyValue(int num, String str1, StringBuilder sb1){
 
-        str1 = "Not a thing";
-        num = 8;
+        str1 = "Not a thing";   //the local variable is referencing a different String object now;
+        num = 8;                //local var is holding a different value now
 
         //This local variable sb1 is pointing to the same object as the other sb1
         sb1.append("Change me");
