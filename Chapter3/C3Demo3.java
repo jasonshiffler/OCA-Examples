@@ -174,12 +174,7 @@ public class C3Demo3 {
         System.out.println(date2);
 
 
-
     }
-
-
-
-
 
 
 } //close class
