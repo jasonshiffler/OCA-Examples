@@ -5,7 +5,8 @@
  *
  *
  * -Overriding Methods
- * 
+ * -Hiding Variables
+ *
  *
  * Rules of Overriding Methods
  *
@@ -20,6 +21,8 @@
  *
  * Hidden method rules are the same with the exception that a method must be marked static in both the class and subclass
  *
+ * Variables are hidden not overriden. Parent methods will reference variables in the parent class. Child methods
+ * will reference variables in the child class
  *
  */
 
@@ -30,7 +33,27 @@ import java.io.IOException;
 
 public class C5Demo2 {
 
+    public static void main(String args[]){
+
+        C5Demo2 demo = new C5Demo2();
+        demo.go();
+
+    }
+
+    void go() {
+
+        Shark shark = new Shark();
+        System.out.println("There are " + shark.getNumFishSpecies() + " fish species");
+        System.out.println("There are " + shark.getNumSharkSpecies() + " shark species");
+
+
+    }
+
+
     class Fish {
+
+        int numSpecies =  33_100;
+
 
         String getNumberOfFins() throws IOException {
             return "Undefined";
@@ -46,10 +69,14 @@ public class C5Demo2 {
 
         }//close method
 
+        int getNumFishSpecies(){return numSpecies;}
+
+
     } //close class
 
     class Shark extends Fish {
 
+        int numSpecies = 440;
 
         String getNumberOfFins(){return "3";} //Doesn't have to throw an Exception
 
@@ -72,6 +99,10 @@ public class C5Demo2 {
 
         //Parent method is marked final so overriding is not permitted.
         //String getNumberOfBones(){return "300";}
+
+        int getNumSharkSpecies(){return numSpecies;}
+
+
     }
 
 
